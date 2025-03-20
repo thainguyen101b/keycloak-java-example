@@ -1,0 +1,8 @@
+{
+  "realm": "bank",
+  "auth-server-url": "http://localhost:8180",
+  "resource": "bank-client",
+  "credentials": {
+    "secret": "secret"
+  }
+}

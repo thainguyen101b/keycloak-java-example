@@ -1,3 +1,5 @@
+target/
+
 # Intellij
 ###################
 .idea
@@ -33,3 +35,8 @@ nbproject
 *.tar
 *.zip
 
+# Compiled Output #
+/target
+/dist
+/tmp
+/out-tsc

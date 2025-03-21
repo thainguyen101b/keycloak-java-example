@@ -80,8 +80,8 @@ and then create two users with following info.
 
 | Username | Password | Role          |
 |----------|----------|---------------|
-| alice    | alice    | bank_teller   |
-| bob      | bob      | account_owner |
+| bob      | bob      | bank_teller   |
+| alice    | alice    | account_owner |
 
 This application is configured by `policy-enforcer.json` find more details
 in [keycloak policy-enforcer](https://www.keycloak.org/securing-apps/policy-enforcer)
@@ -95,19 +95,23 @@ in [keycloak policy-enforcer](https://www.keycloak.org/securing-apps/policy-enfo
 | `/accounts/*` | `POST,PUT` | alice     | permit |
 
 ## Keycloak javascript adapter example
+
 This example using:
-- `react` with `vite` 
+
+- `react` with `vite`
 - `keycloak-js` library
 
 You can find more details in [keycloak javascript-adapter](https://www.keycloak.org/securing-apps/javascript-adapter)
 
 ### Step 1
+
 ```bash
 # Start keycloak container
 docker compose up -d keycloak-javascript-adapter
 ```
 
 ### Step 2
+
 run these commands
 
 ```bash
@@ -117,6 +121,7 @@ cd keycloak-javascript-adapter
 ```bash
 npm i 
 ```
+
 ```bash
 npm run dev 
 ```

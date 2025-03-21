@@ -6,36 +6,14 @@
   ],
   "users": [
     {
-      "username": "Bob",
-      "firstName": "Bob",
-      "lastName": "Smith",
-      "email": "bob@example.com",
+      "username": "service-account-bank-client",
       "enabled": true,
-      "credentials": [
-        {
-          "type": "password",
-          "value": "bob"
-        }
-      ],
-      "realmRoles": [
-        "bank_teller"
-      ]
-    },
-    {
-      "username": "alice",
-      "firstName": "Alice",
-      "lastName": "Smith",
-      "email": "alice@example.com",
-      "enabled": true,
-      "credentials": [
-        {
-          "type": "password",
-          "value": "alice"
-        }
-      ],
-      "realmRoles": [
-        "account_owner"
-      ]
+      "serviceAccountClientId": "bank-client",
+      "clientRoles": {
+        "bank-client": [
+          "uma_protection"
+        ]
+      }
     }
   ],
   "roles": {
@@ -77,30 +55,6 @@
                 "name": "account:edit"
               }
             ]
-          },
-          {
-            "name": "Transfer Resource",
-            "uri": "/transfer",
-            "scopes": [
-              {
-                "name": "transfer:execute"
-              },
-              {
-                "name": "transfer:view"
-              }
-            ]
-          },
-          {
-            "name": "Customer Profile Resource",
-            "uri": "/profile/{id}",
-            "scopes": [
-              {
-                "name": "profile:view"
-              },
-              {
-                "name": "profile:edit"
-              }
-            ]
           }
         ],
         "policies": [
@@ -121,15 +75,7 @@
             }
           },
           {
-            "name": "Only Bank Teller Policy",
-            "type": "role",
-            "logic": "POSITIVE",
-            "config": {
-              "roles": "[{\"id\": \"bank_teller\"}]"
-            }
-          },
-          {
-            "name": "View Account Resource Permission",
+            "name": "Account Resource Permission",
             "type": "resource",
             "logic": "POSITIVE",
             "decisionStrategy": "UNANIMOUS",
@@ -157,66 +103,6 @@
               "scopes": "[\"account:edit\"]",
               "applyPolicies": "[\"Only Account Owner Policy\"]"
             }
-          },
-          {
-            "name": "Transfer Resource Permission",
-            "type": "resource",
-            "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
-            "config": {
-              "resources": "[\"Transfer Resource\"]",
-              "applyPolicies": "[\"Only Bank Teller and Account Owner Policy\"]"
-            }
-          },
-          {
-            "name": "Transfer Execute Scope Permission",
-            "type": "scope",
-            "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
-            "config": {
-              "scopes": "[\"transfer:execute\"]",
-              "applyPolicies": "[\"Only Account Owner Policy\"]"
-            }
-          },
-          {
-            "name": "Transfer View Scope Permission",
-            "type": "scope",
-            "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
-            "config": {
-              "scopes": "[\"transfer:view\"]",
-              "applyPolicies": "[\"Only Bank Teller and Account Owner Policy\"]"
-            }
-          },
-          {
-            "name": "Profile Resource Permission",
-            "type": "resource",
-            "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
-            "config": {
-              "resources": "[\"Customer Profile Resource\"]",
-              "applyPolicies": "[\"Only Bank Teller and Account Owner Policy\"]"
-            }
-          },
-          {
-            "name": "Profile View Scope Permission",
-            "type": "scope",
-            "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
-            "config": {
-              "scopes": "[\"profile:view\"]",
-              "applyPolicies": "[\"Only Bank Teller and Account Owner Policy\"]"
-            }
-          },
-          {
-            "name": "Profile Edit Scope Permission",
-            "type": "scope",
-            "logic": "POSITIVE",
-            "decisionStrategy": "UNANIMOUS",
-            "config": {
-              "scopes": "[\"profile:edit\"]",
-              "applyPolicies": "[\"Only Account Owner Policy\"]"
-            }
           }
         ],
         "scopes": [
@@ -225,18 +111,6 @@
           },
           {
             "name": "account:edit"
-          },
-          {
-            "name": "transfer:execute"
-          },
-          {
-            "name": "transfer:view"
-          },
-          {
-            "name": "profile:view"
-          },
-          {
-            "name": "profile:edit"
           }
         ]
       }

@@ -4,5 +4,30 @@
   "resource": "bank-client",
   "credentials": {
     "secret": "secret"
-  }
+  },
+  "paths": [
+    {
+      "path": "/accounts/*",
+      "methods": [
+        {
+          "method": "GET",
+          "scopes": [
+            "account:view"
+          ]
+        },
+        {
+          "method": "POST",
+          "scopes": [
+            "account:edit"
+          ]
+        },
+        {
+          "method": "PUT",
+          "scopes": [
+            "account:edit"
+          ]
+        }
+      ]
+    }
+  ]
 }

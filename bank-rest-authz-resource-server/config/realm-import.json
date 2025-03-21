@@ -67,7 +67,7 @@
       "authorizationSettings": {
         "resources": [
           {
-            "name": "View Account Resource",
+            "name": "Account Resource",
             "uri": "/accounts/*",
             "scopes": [
               {
@@ -134,7 +134,7 @@
             "logic": "POSITIVE",
             "decisionStrategy": "UNANIMOUS",
             "config": {
-              "resources": "[\"View Account Resource\"]",
+              "resources": "[\"Account Resource\"]",
               "applyPolicies": "[\"Only Bank Teller and Account Owner Policy\"]"
             }
           },

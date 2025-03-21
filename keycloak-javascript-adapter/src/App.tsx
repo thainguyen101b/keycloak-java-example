@@ -57,6 +57,9 @@ function App() {
                 </div>
                 <div className="info">
                     <div>
+                        <a href="http://localhost:8180" target={'_blank'}>Keycloak Admin Console</a> admin|admin
+                    </div>
+                    <div>
                         <a href="http://localhost:8180/realms/keycloak-example/account" target={'_blank'}>Keycloak Account Console</a>
                     </div>
                 </div>
